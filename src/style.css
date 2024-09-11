@@ -1,0 +1,37 @@
+:root {
+  --bg-primary: #ebf0fa;
+  --bg-secondary: #dfe5f5;
+  --text-primary: #5667ff;
+  --text-seconday: #6b7280;
+  --text-white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik';
+  background-color: var(--bg-primary);
+}
+
+.heading {
+  text-align: center;
+  border-bottom: 2px solid var(--bg-secondary);
+  padding: 8px;
+  color: var(--text-primary);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 32px 0;
+}
+
+.card {
+  flex: 0 1 97.6px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+}
