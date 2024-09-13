@@ -6,8 +6,14 @@ function Randomize(maxValue) {
 // Returns a list of random values that represent ids of pokemon in the pokedex
 function getRandomizedValues(batchSize, totalCount) {
   let randomizedValues = [];
-  for (let i = 0; i < batchSize; i++)
-    randomizedValues.push(Randomize(totalCount));
+
+  for (let i = 0; i < batchSize; i++) {
+    let value = Randomize(totalCount);
+
+    while (randomizedValues.includes(value)) value = Randomize(totalCount);
+
+    randomizedValues.push(value);
+  }
 
   return randomizedValues;
 }
@@ -21,7 +27,7 @@ async function getCount() {
 }
 
 async function getBatch(totalCount) {
-  const pokemonIDs = getRandomizedValues(100, totalCount);
+  const pokemonIDs = getRandomizedValues(8, totalCount);
 
   return Promise.all(
     Array.from(pokemonIDs, (id) =>
@@ -56,16 +62,4 @@ export default async function fetchPokemon() {
 
     return [];
   }
-
-  //   let pokemonList;
-  //   Retrieve the total count of Pokemon in the Pokedex
-  //   getCount()
-  //     .then((data) => {
-  //       return getBatch(data.count);
-  //     })
-  //     .then((data) => {
-  //       pokemonList = createPokemonList(data);
-  //       return pokemonList;
-  //     })
-  //     .catch((err) => {});
 }
