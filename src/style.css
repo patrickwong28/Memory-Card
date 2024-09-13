@@ -13,11 +13,27 @@
   background-color: var(--bg-primary);
 }
 
+body {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .heading {
   text-align: center;
   border-bottom: 2px solid var(--bg-secondary);
   padding: 8px;
   color: var(--text-primary);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 8px;
+}
+
+.scores {
+  color: var(--text-seconday);
 }
 
 .container {
